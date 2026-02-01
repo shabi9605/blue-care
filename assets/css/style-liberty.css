@@ -19092,7 +19092,7 @@ header.nav-fixed {
 
   .cont-ser-position {
     position: absolute;
-    right: 50px;
+    right: 0px;
     top: 15px;
   }
 }
@@ -19104,6 +19104,7 @@ header.nav-fixed {
 
   .cont-ser-position {
     top: 16px;
+    right: 5px;
   }
 }
 
@@ -23120,6 +23121,12 @@ body.dark .area-box p {
         max-width: 120px !important;
         height: auto !important;
     }
+
+@media (min-width: 1200px) {
+    .navbar-logo {
+        height: 55px;
+    }
+}
     
     /* Service Step Cards - Water Tank Page */
     .service-step-card {
