@@ -23354,6 +23354,15 @@ body.dark .area-box p {
         width: 100% !important;
         position: static !important;
         margin-top: 10px;
+        top: auto !important;
+        right: auto !important;
+        order: 3;
+    }
+    .navbar-collapse {
+        position: relative;
+    }
+    .clients-carousel .owl-dots {
+        display: none !important;
     }
     .nav-link {
         padding: 12px 16px !important;
