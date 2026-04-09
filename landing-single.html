@@ -17,66 +17,51 @@
 <body>
     <!-- header -->
     <header id="site-header" class="fixed-top">
+        <!-- Top Info Bar -->
+        <div class="header-topbar d-none d-lg-block">
+            <div class="container">
+                <div class="topbar-inner">
+                    <div class="topbar-left">
+                        <span><i class="fas fa-shield-alt me-1"></i> Dubai Municipality Approved</span>
+                    </div>
+                    <div class="topbar-right">
+                        <a href="tel:+971501923869"><i class="fas fa-phone me-1"></i>+971 50 192 3869</a>
+                        <a href="mailto:operation@bluecareuae.com"><i class="fas fa-envelope me-1"></i>operation@bluecareuae.com</a>
+                        <span><i class="fas fa-clock me-1"></i>Everyday 7 AM – 8 PM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main Navbar -->
         <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="index.html">
-                    <span>L</span>aundries<i class="fas fa-hands-wash"></i>
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="assets/images/Blue-BG.png" alt="BlueCare Logo" class="navbar-logo me-2">
                 </a>
-                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                <button id="nav-toggle-btn" class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
                     aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
-                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                    <span class="hb-wrap"><span></span><span></span><span></span></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarScroll">
-                    <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                            <a class="nav-link" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#about">About Us</a>
+                            <a class="nav-link" href="about.html">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#services">Services</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Sections <i class="fas fa-angle-down"></i>
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                <li><a class="dropdown-item" href="#stats">Statistics</a></li>
-                                <li><a class="dropdown-item" href="#works">How We Work?</a></li>
-                                <li><a class="dropdown-item" href="#blog">Blog Posts</a></li>
-                                <li><a class="dropdown-item" href="#team">Our Team</a></li>
-                                <li><a class="dropdown-item" href="#testimonials">Tesimonials</a></li>
-                            </ul>
+                            <a class="nav-link" href="services.html">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact</a>
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item ms-lg-2">
+                            <a href="contact.html" class="nav-cta-btn">Get a Quote</a>
                         </li>
                     </ul>
-                    <form action="#search" method="GET" class="d-flex search-header ms-lg-2">
-                        <input class="form-control" type="search" placeholder="Enter Keyword..." aria-label="Search"
-                            required>
-                        <button class="btn btn-style" type="submit"><i class="fas fa-search"></i></button>
-                    </form>
                 </div>
-                <!-- toggle switch for light and dark theme -->
-                <div class="cont-ser-position">
-                    <nav class="navigation">
-                        <div class="theme-switch-wrapper">
-                            <label class="theme-switch" for="checkbox">
-                                <input type="checkbox" id="checkbox">
-                                <div class="mode-container">
-                                    <i class="gg-sun"></i>
-                                    <i class="gg-moon"></i>
-                                </div>
-                            </label>
-                        </div>
-                    </nav>
-                </div>
-                <!-- //toggle switch for light and dark theme -->
             </nav>
         </div>
     </header>
@@ -146,7 +131,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
-                    <div class="counter active">
+                    <div class="counter">
                         <div class="timer count-title count-number" data-to="9716" data-speed="1500"></div>
                         <p class="count-text">Happy Customers</p>
                     </div>
@@ -638,62 +623,56 @@
     </section>
     <!-- //contact -->
 
+
     <!-- footer -->
-    <footer class="w3l-footer-29-main">
-        <div class="footer-29-w3l py-5">
+    <footer class="w3l-footer-29-main" style="background: linear-gradient(135deg, #343a40 0%, #495057 50%, #6c757d 100%); position: relative; overflow: hidden;">
+        <div class="footer-background" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.05; background-image: radial-gradient(circle at 20% 80%, #007bff 2px, transparent 2px), radial-gradient(circle at 80% 20%, #28a745 2px, transparent 2px), radial-gradient(circle at 50% 50%, #ffc107 2px, transparent 2px); background-size: 50px 50px;"></div>
+        <div class="footer-29-w3l py-5" style="position: relative; z-index: 1;">
             <div class="container pt-md-5 pt-4">
                 <div class="w3l-footer-text-style">
                     <div class="footer-list-cont d-flex align-items-center justify-content-between mb-5">
-                        <h6 class="foot-sub-title">Contact Us</h6>
-                        <div class="main-social-footer-29">
+                        <h6 class="foot-sub-title" style="color: #007bff; font-weight: 600; font-size: 1.2rem;">Contact Us</h6>
+                        <!-- <div class="main-social-footer-29">
                             <a href="#facebook" class="facebook"><i class="fab fa-facebook-f"></i></a>
                             <a href="#twitter" class="twitter"><i class="fab fa-twitter"></i></a>
                             <a href="#instagram" class="instagram"><i class="fab fa-instagram"></i></a>
                             <a href="#linkedin" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
-                <div class="row footer-top-29 pt-lg-5 pt-sm-4">
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="address-grid">
-                            <h5>10001 Alleghany st, 5th Avenue, 235 Terry, <br> London.</h5>
-                            <h5 class="mt-sm-5 mt-4">Everyday: <span> 7 AM - 8 PM</span></h5>
+                <div class="row footer-top-29 pt-lg-5 pt-sm-4 justify-content-center">
+                    <div class="col-lg-4 col-md-6 col-sm-12 text-center">
+                        <div class="address-grid" style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.2); margin-bottom: 20px;">
+                            <i class="fas fa-map-marker-alt" style="font-size: 2.5rem; color: #007bff; margin-bottom: 15px;"></i>
+                            <h5 class="top-bold" style="color: white; font-weight: 600;">Address</h5>
+                            <p class="mt-3" style="color: #e9ecef; line-height: 1.6;">Office No. 105 & 106, PO Box No:91929,<br> Al Bahar Building, Al Khabeesi,<br> Dubai - UAE</p>
+                            <p class="mt-3" style="color: #ffc107; font-weight: 600;"><strong>Hours:</strong> Everyday 7 AM - 8 PM</p>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6 mt-sm-0 mt-4">
-                        <div class="address-grid">
-                            <h5 class="top-bold">Phone</h5>
-                            <h5 class="phone-number-text mt-2"><a href="tel:+1(21) 112 7368">+1(21) 112 7368</a></h5>
-                        </div>
-                        <div class="address-grid mt-sm-5 mt-4">
-                            <h5 class="top-bold">E-mail</h5>
-                            <h5 class="email-cont-text mt-1"> <a href="mailto:photogenic@mail.com"
-                                    class="mail">photogenic@mail.com</a></h5>
+                    <div class="col-lg-4 col-md-6 col-sm-12 text-center mt-lg-0 mt-4">
+                        <div class="address-grid" style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.2); margin-bottom: 20px;">
+                            <i class="fas fa-phone" style="font-size: 2.5rem; color: #28a745; margin-bottom: 15px;"></i>
+                            <h5 class="top-bold" style="color: white; font-weight: 600;">Contact Us</h5>
+                            <p class="mt-3"><i class="fas fa-phone" style="color: #ffc107;"></i> <a href="tel:+971501923869" class="phone-number-text" style="color: #e9ecef; text-decoration: none; font-weight: 500;">+971 50 192 3869</a></p>
+                            <p class="mt-3"><i class="fas fa-envelope" style="color: #ffc107;"></i> <a href="mailto:operation@bluecareuae.com" class="email-cont-text" style="color: #e9ecef; text-decoration: none; font-weight: 500;">operation@bluecareuae.com</a></p>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-6 col-sm-5 footer-list-menu ps-lg-0 mt-lg-0 mt-sm-5 mt-4">
-                        <div class="address-grid">
-                            <h5 class="mb-sm-4 mb-3 pb-lg-2 top-bold">Support Links</h5>
-                            <ul>
-                                <li><a href="#privacy">Privacy Policy</a></li>
-                                <li><a href="#terms"> Terms of Service</a></li>
-                                <li><a href="#contact">Contact us</a></li>
-                                <li><a href="#support"> Support</a></li>
-                            </ul>
+                    <div class="col-lg-4 col-md-12 col-sm-12 text-center mt-lg-0 mt-4">
+                        <div class="address-grid" style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.2); margin-bottom: 20px;">
+                            <i class="fas fa-share-alt" style="font-size: 2.5rem; color: #dc3545; margin-bottom: 15px;"></i>
+                            <h5 class="top-bold" style="color: white; font-weight: 600;">Follow Us</h5>
+                            <div class="main-social-footer-29 mt-3">
+                                <a href="#facebook" class="facebook me-3" style="background: linear-gradient(45deg, #1877f2, #42a5f5); color: white; padding: 10px; border-radius: 50%; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s ease;"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#twitter" class="twitter me-3" style="background: linear-gradient(45deg, #1da1f2, #42a5f5); color: white; padding: 10px; border-radius: 50%; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s ease;"><i class="fab fa-twitter"></i></a>
+                                <a href="#instagram" class="instagram me-3" style="background: linear-gradient(45deg, #e4405f, #f56040); color: white; padding: 10px; border-radius: 50%; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s ease;"><i class="fab fa-instagram"></i></a>
+                                <a href="#linkedin" class="linkedin" style="background: linear-gradient(45deg, #0077b5, #42a5f5); color: white; padding: 10px; border-radius: 50%; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s ease;"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="address-grid col-lg-4 col-md-6 col-sm-7 mt-lg-0 mt-sm-5 mt-4 w3l-footer-16-main">
-                        <h5 class="top-bold">Subscribe Here</h5>
-                        <form action="#" class="subscribe d-flex mt-sm-4 mt-3 pt-lg-2 mb-4" method="post">
-                            <input type="email" name="email" placeholder="Email Address" required="">
-                            <button><span class="fa fa-paper-plane" aria-hidden="true"></span></button>
-                        </form>
-                        <p>Subscribe to our mailing list and get updates to your email inbox.</p>
                     </div>
                 </div>
                 <!-- copyright -->
-                <div class="w3l-copyright text-center mt-lg-5 mt-4 pt-sm-4 pt-3">
-                    <p class="copy-footer-29">© 2022 Laundries. All rights reserved.</p>
+                <div class="w3l-copyright text-center mt-lg-5 mt-4 pt-sm-4 pt-3" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+                    <p class="copy-footer-29" style="color: #e9ecef; font-weight: 500;">© 2024 BlueCare Building Cleaning Services. All rights reserved.</p>
                 </div>
             </div>
         </div>
@@ -757,11 +736,6 @@
         })
     </script>
     <!-- //script for tesimonials carousel slider -->
-
-    <!-- theme switch js (light and dark)-->
-    <script src="assets/js/theme-change.js"></script>
-    <!-- //theme switch js (light and dark)-->
-
     <!-- MENU-JS -->
     <script>
         $(window).on("scroll", function () {
@@ -805,6 +779,10 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <!-- //bootstrap -->
     <!-- //Js scripts -->
+
+    <!-- animations -->
+    <script src="assets/js/animations.js"></script>
+    <!-- //animations -->
 </body>
 
 </html>
