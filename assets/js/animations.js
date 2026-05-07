@@ -5,6 +5,10 @@
 (function () {
     'use strict';
 
+    const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const COARSE_POINTER = window.matchMedia('(pointer: coarse)').matches;
+    const SMALL_SCREEN = window.matchMedia('(max-width: 991px)').matches;
+
     /* ── SCROLL PROGRESS BAR ── */
     function initScrollProgress() {
         const bar = document.createElement('div');
@@ -56,6 +60,7 @@
 
     /* ── MOUSE PARALLAX (hero section) ── */
     function initMouseParallax() {
+        if (REDUCED_MOTION || COARSE_POINTER || SMALL_SCREEN) return;
         const hero = document.querySelector('.banner-19');
         if (!hero) return;
         const layers = [
@@ -81,7 +86,7 @@
 
     /* ── MAGNETIC BUTTONS ── */
     function initMagneticBtns() {
-        if (window.matchMedia('(pointer: coarse)').matches) return;
+        if (REDUCED_MOTION || COARSE_POINTER || SMALL_SCREEN) return;
         document.querySelectorAll('.btn-style, .nav-cta-btn, .navbar-brand').forEach(btn => {
             btn.addEventListener('mousemove', e => {
                 const rect = btn.getBoundingClientRect();
@@ -174,6 +179,7 @@
 
     /* ── 3-D CARD TILT ── */
     function initTilt() {
+        if (REDUCED_MOTION || COARSE_POINTER || SMALL_SCREEN) return;
         document.querySelectorAll('.grids5-info, .address-grid, .service-step-card, .feature-card').forEach(card => {
             card.addEventListener('mousemove', e => {
                 const { left, top, width, height } = card.getBoundingClientRect();
@@ -187,7 +193,7 @@
 
     /* ── SCROLL-DRIVEN PARALLAX ── */
     function initParallax() {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if (REDUCED_MOTION || SMALL_SCREEN) return;
 
         const hero = document.querySelector('.banner-19 .banner-layer, .inner-banner');
         window.addEventListener('scroll', () => {
@@ -205,6 +211,7 @@
 
     /* ── FLOATING PARTICLES (hero section) ── */
     function initParticles() {
+        if (REDUCED_MOTION || SMALL_SCREEN) return;
         const hero = document.querySelector('.banner-19');
         if (!hero) return;
         const canvas = document.createElement('canvas');
@@ -223,7 +230,7 @@
         resize();
         window.addEventListener('resize', resize, { passive: true });
 
-        const N = Math.floor((W * H) / 18000);
+        const N = Math.min(Math.floor((W * H) / 22000), 85);
         dots = Array.from({ length: N }, () => ({
             x: Math.random() * W, y: Math.random() * H,
             r: Math.random() * 2 + 1,
@@ -263,7 +270,7 @@
     /* ── MOUSE-REACTIVE PARTICLES (follows cursor on hero) ── */
     function initMouseParticles() {
         const hero = document.querySelector('.banner-19');
-        if (!hero || window.matchMedia('(pointer: coarse)').matches) return;
+        if (!hero || REDUCED_MOTION || COARSE_POINTER || SMALL_SCREEN) return;
 
         hero.addEventListener('mousemove', e => {
             for (let i = 0; i < 3; i++) {
@@ -284,6 +291,7 @@
 
     /* ── SCROLL-TRIGGERED SECTION HIGHLIGHT ── */
     function initSectionHighlight() {
+        if (REDUCED_MOTION) return;
         const sections = document.querySelectorAll('section, .grids-one, .w3l-call-to-action-6');
         const io = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -295,6 +303,7 @@
 
     /* ── STAGGERED LIST REVEAL ── */
     function initListReveal() {
+        if (REDUCED_MOTION || SMALL_SCREEN) return;
         const lists = document.querySelectorAll('.navbar-nav.ms-auto, .w3l-footer-text-style ul, .breadcrumbs-custom-path');
         const io = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -335,6 +344,7 @@
 
     /* ── TYPED TEXT EFFECT (hero subtitle) ── */
     function initTyped() {
+        if (REDUCED_MOTION || SMALL_SCREEN) return;
         const el = document.querySelector('.hero-subtitle');
         if (!el) return;
         const original = el.textContent;
@@ -374,10 +384,83 @@
         document.body.classList.add('page-ready');
     }
 
+
+    /* ── AMBIENT 3D BACKGROUND ELEMENTS (all pages/sections) ── */
+    function initAmbient3D() {
+        const sections = document.querySelectorAll(
+            '.banner-19, .inner-banner, .w3l-bottom-grids-6, .w3l-grids-block-5, .w3l-about-2, .w3l-feature-8, .w3l-blog, .w3l-team, .w3l-contact, .w3l-contact-11, .grids-one, .w3l-call-to-action-6'
+        );
+        if (!sections.length) return;
+
+        sections.forEach((section, idx) => {
+            if (section.querySelector('.ambient-3d-layer')) return;
+            section.classList.add('ambient-host');
+
+            const layer = document.createElement('div');
+            layer.className = 'ambient-3d-layer';
+            layer.innerHTML = `
+                <span class="orb orb-a"></span>
+                <span class="orb orb-b"></span>
+                <span class="cube cube-a"></span>
+            `;
+            section.appendChild(layer);
+
+            if (!REDUCED_MOTION && !SMALL_SCREEN) {
+                layer.style.animationDelay = `${(idx % 4) * 0.8}s`;
+            }
+        });
+    }
+
+    /* ── SECTION 3D TILT PARALLAX (desktop) ── */
+    function initSection3DTilt() {
+        if (REDUCED_MOTION || COARSE_POINTER || SMALL_SCREEN) return;
+        const sections = document.querySelectorAll('.banner-19, .inner-banner, .w3l-bottom-grids-6, .w3l-grids-block-5, .w3l-about-2, .w3l-feature-8, .grids-one');
+        sections.forEach(section => {
+            section.addEventListener('mousemove', e => {
+                const rect = section.getBoundingClientRect();
+                const px = (e.clientX - rect.left) / rect.width - 0.5;
+                const py = (e.clientY - rect.top) / rect.height - 0.5;
+                section.style.setProperty('--tilt-x', `${(py * -2.5).toFixed(2)}deg`);
+                section.style.setProperty('--tilt-y', `${(px * 2.5).toFixed(2)}deg`);
+            });
+            section.addEventListener('mouseleave', () => {
+                section.style.setProperty('--tilt-x', '0deg');
+                section.style.setProperty('--tilt-y', '0deg');
+            });
+        });
+    }
+
+    /* ── HERO SPOTLIGHT FOLLOW ── */
+    function initHeroSpotlight() {
+        if (REDUCED_MOTION || SMALL_SCREEN) return;
+        const hero = document.querySelector('.banner-19, .inner-banner');
+        if (!hero) return;
+
+        if (!hero.querySelector('.hero-spotlight')) {
+            const light = document.createElement('div');
+            light.className = 'hero-spotlight';
+            hero.appendChild(light);
+        }
+
+        const spotlight = hero.querySelector('.hero-spotlight');
+        hero.addEventListener('mousemove', e => {
+            const rect = hero.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            spotlight.style.setProperty('--sx', `${x}px`);
+            spotlight.style.setProperty('--sy', `${y}px`);
+            spotlight.classList.add('active');
+        });
+        hero.addEventListener('mouseleave', () => spotlight.classList.remove('active'));
+    }
+
     /* ── INIT ALL ── */
     document.addEventListener('DOMContentLoaded', () => {
         initScrollProgress();
         initCursor();
+        initAmbient3D();
+        initSection3DTilt();
+        initHeroSpotlight();
         initMouseParallax();
         initMagneticBtns();
         initScrollReveal();
