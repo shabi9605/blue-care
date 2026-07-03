@@ -25796,3 +25796,33 @@ header#site-header .navbar-logo {
     margin: 0 auto;
     filter: none !important;
 }
+
+/* Web3Forms status modal */
+.form-status-modal {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.form-status-icon i {
+    font-size: 4rem;
+}
+
+.form-status-icon.is-success i {
+    color: #28a745;
+}
+
+.form-status-icon.is-error i {
+    color: #dc3545;
+}
+
+.form-status-title {
+    font-weight: 700;
+    color: #343a40;
+}
+
+.form-status-message {
+    color: #6c757d;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
